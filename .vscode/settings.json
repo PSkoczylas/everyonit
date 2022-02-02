@@ -1,0 +1,27 @@
+{
+    "files.autoSave": "onFocusChange",
+    "ruby.rubocop.executePath": "/home/piotr/.rvm/gems/ruby-3.1.0@everyonit/bin/",
+    "ruby.rubocop.useBundler": true,
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+          "path": "bash",
+          "icon": "terminal-bash",
+          "args": ["--login"]
+        },
+        "zsh": {
+          "path": "zsh"
+        },
+        "fish": {
+          "path": "fish"
+        },
+        "tmux": {
+          "path": "tmux",
+          "icon": "terminal-tmux"
+        },
+        "pwsh": {
+          "path": "pwsh",
+          "icon": "terminal-powershell"
+        }
+      },
+      "editor.tabSize": 2
+}
