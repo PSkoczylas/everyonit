@@ -49,6 +49,8 @@ gem 'rubocop', require: false
 
 gem 'devise'
 
+gem 'simple_form'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

@@ -1,25 +1,20 @@
 <div class="login">
   <h2>Log in</h2>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group">
-      <%= f.label :email, class: 'mt-2 mb-2' %><br />
-      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password, class: 'mt-2 mb-2' %><br />
-      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-    </div>
-    <% if devise_mapping.rememberable? %>
-      <div class="form-group">
+      <%= f.input :email, label: "Email address:", required: true, autofocus: true,
+      label_html: { class: 'mt-1 mb-1' }, input_html: { class: 'mt-1 mb-1' }  %>
+      <%= f.input :email, label: "Password:", required: true, autofocus: true,
+          label_html: { class: 'mt-1 mb-1' }, input_html: { class: 'mt-1 mb-1' } %>
+      <% if devise_mapping.rememberable? %>
         <%= f.check_box :remember_me %>
         <%= f.label :remember_me, class: 'mt-2 mb-2' %>
+      <% end %>
+      <div class="actions mt-1 mb-2">
+        <%= f.submit "Log in", class: 'btn btn-primary' %>
       </div>
     <% end %>
-    <div class="actions mt-1 mb-2">
-      <%= f.submit "Log in", class: 'btn btn-primary' %>
+    <div class="auth-links">
+      <%= render "devise/shared/links" %>
     </div>
-  <% end %>
-  <div class="auth-links">
-    <%= render "devise/shared/links" %>
   </div>
-</div>
