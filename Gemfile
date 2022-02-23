@@ -51,6 +51,8 @@ gem 'devise'
 
 gem 'simple_form'
 
+gem "bootstrap_form", "~> 5.0"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
