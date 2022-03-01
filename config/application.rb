@@ -20,7 +20,8 @@ require 'action_cable/engine'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Everyonit # name to change, probobly into YourITGate
+# name to change, probobly into YourITGate
+module Everyonit
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0

@@ -37,7 +37,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
 
       t.string :first_name, null: false, default: ''
       t.string :last_name, null: false, default: ''
-      #t.integer :role # do STI trzeba zmienic na string type
+      # t.integer :role # do STI trzeba zmienic na string type
       t.text :description
       t.string :main_specialization
       t.string :title
