@@ -8,6 +8,6 @@ class SpecialistsController < ApplicationController
   private
 
   def repository
-    Domains::Specialists::SpecialistRepository
+    Specialists::SpecialistRepository
   end
 end
