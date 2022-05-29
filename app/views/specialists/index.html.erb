@@ -2,8 +2,21 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Example text</h1>
-        <p class="lead text-muted">Something short aut not too short so folks.</p>
+        <h1 class="fw-light">Osoby chętne na nową pracę w IT:</h1>
+        <p class="lead text-muted">
+          <div class="list-group">
+          <% @specialists.each do |specialist| %>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"><%= specialist.first_name %> <%= specialist.last_name %></h5>
+                <small>3 days ago</small>
+              </div>
+              <p class="mb-1"><%= specialist.description %></p>
+              <small>ok</small>
+            </a>
+        <% end %>
+          </div>
+        </p>
         <p>
           <a href="#" class="btn btn-primary my-2">Main call to action</a>
           <a href="#" class="btn btn-secondary my-2">Secondary action</a>
