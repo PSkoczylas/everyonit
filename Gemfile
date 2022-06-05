@@ -47,11 +47,17 @@ gem 'bootsnap', require: false
 # Use for clean code
 gem 'rubocop', require: false
 
+# Use for authentication
 gem 'devise'
 
+# Simpler views (possible to remove)
 gem 'simple_form'
 
+# Bootstrap for views
 gem 'bootstrap_form', '~> 5.0'
+
+# For avoid n + 1 query
+gem 'bullet', group: 'development'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -62,11 +68,14 @@ gem 'bootstrap_form', '~> 5.0'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  # create similar objects to tests
   gem 'factory_bot_rails'
+  # framework for tests
   gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :test do
+  # better matchers for tests
   gem 'shoulda-matchers', '~> 5.0'
 end
 

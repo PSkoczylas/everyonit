@@ -3,6 +3,8 @@
 Rails.application.routes.draw do
   root 'specialists#index'
 
+  resources :specialists
+
   devise_scope :user do
     # Redirests signing out users back to sign-in
     get 'users', to: 'devise/sessions#new'

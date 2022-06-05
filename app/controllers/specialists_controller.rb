@@ -6,6 +6,10 @@ class SpecialistsController < ApplicationController
     @specialists = repository.find_active_specialists # dodac rowniez atrybut public profile, ktory tez musi byc true
   end
 
+  def show
+    @specialist = repository.find_specialist(params[:id])
+  end
+
   private
 
   def repository
