@@ -56,9 +56,6 @@ gem 'simple_form'
 # Bootstrap for views
 gem 'bootstrap_form', '~> 5.0'
 
-# For avoid n + 1 query
-gem 'bullet', group: 'development'
-
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -72,6 +69,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   # framework for tests
   gem 'rspec-rails', '~> 5.0.0'
+  # For avoid n + 1 query
+  gem 'bullet'
 end
 
 group :test do
