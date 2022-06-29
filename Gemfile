@@ -71,16 +71,17 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
   # For avoid n + 1 query
   gem 'bullet'
+  gem 'pry-rails'
 end
 
 group :test do
   # better matchers for tests
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'pry-rails'
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]

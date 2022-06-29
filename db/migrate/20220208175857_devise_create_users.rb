@@ -6,6 +6,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       # dodac na pewno jeszcze takie rzeczy jak
       # is_anonymous
       # is_admin
+      # dodac jeszcze rzeczy, ktore sie przydadza od razu
+      # gdy bede dodawal mentorow i dodawanie do projektow
       ## Database authenticatable
       t.string :email,              null: false, default: ''
       t.string :encrypted_password, null: false, default: ''
