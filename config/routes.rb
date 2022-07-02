@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'specialists#index'
+  root 'users#index'
 
-  resources :specialists
+  resources :users
 
   devise_scope :user do
     # Redirests signing out users back to sign-in

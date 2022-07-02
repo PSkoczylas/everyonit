@@ -5,13 +5,13 @@
         <h1 class="fw-light">Osoby chętne na nową pracę w IT:</h1>
         <p class="lead text-muted">
           <div class="list-group">
-          <% @specialists.each do |specialist| %>
-            <%= link_to specialist, class:"list-group-item list-group-item-action flex-column align-items-start" do %>
+          <% @users.each do |user| %>
+            <%= link_to user, class:"list-group-item list-group-item-action flex-column align-items-start" do %>
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1"><%= specialist.first_name %> <%= specialist.last_name %></h5>
+                <h5 class="mb-1"><%= user.first_name %> <%= user.last_name %></h5>
                 <small>3 days ago</small>
               </div>
-              <p class="mb-1"><%= specialist.description %></p>
+              <p class="mb-1"><%= user.description %></p>
               <small>ok</small>
             <% end %>
         <% end %>

@@ -38,7 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.datetime :locked_at
 
       # zastanowic sie nad polymorphic assocation jeszcze
-      t.string :type # for STI
+      # t.string :type # for STI
 
       t.string :first_name, null: false, default: ''
       t.string :last_name, null: false, default: ''
@@ -46,9 +46,19 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.text :description
       t.string :main_specialization
       t.string :title
+      t.string :repository_link
+      t.integer :current_level
       t.integer :desired_level
       t.integer :desired_salary
-      t.boolean :open_for_job # pomyslec czy nie lepiej enum
+      t.integer :account_type, default: 0
+      t.integer :open_for_job, default: 0
+      t.boolean :looking_for_mentor
+      t.boolean :open_for_mentorship
+      t.boolean :open_for_project_to_learn
+      # t.boolean :open_for_job # pomyslec czy nie lepiej enum
+      t.boolean :is_anonymous, default: false
+      t.boolean :is_admin, default: false
+      t.boolean :has_own_company
       t.datetime :date_added_open_for_job
 
       t.timestamps null: false
