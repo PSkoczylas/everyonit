@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2022_02_08_175857) do
     t.boolean "open_for_mentorship"
     t.boolean "open_for_project_to_learn"
     t.boolean "is_anonymous", default: false
-    t.boolean "is_admin", default: false
     t.boolean "has_own_company"
     t.datetime "date_added_open_for_job", precision: 6
     t.datetime "created_at", precision: 6, null: false

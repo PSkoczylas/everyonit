@@ -3,7 +3,6 @@
 class DeviseCreateUsers < ActiveRecord::Migration[7.0]
   def change
     create_table :users do |t|
-      # dodac na pewno jeszcze takie rzeczy jak
       # is_anonymous
       # is_admin
       # dodac jeszcze rzeczy, ktore sie przydadza od razu
@@ -57,7 +56,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.boolean :open_for_project_to_learn
       # t.boolean :open_for_job # pomyslec czy nie lepiej enum
       t.boolean :is_anonymous, default: false
-      t.boolean :is_admin, default: false
+      # t.boolean :is_admin, default: false
       t.boolean :has_own_company
       t.datetime :date_added_open_for_job
 

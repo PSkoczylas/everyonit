@@ -5,7 +5,7 @@ module Users
   class UserRepository
     class << self
       def find_active_users
-        User.all.where(open_for_job: 2)
+        User.all.where(open_for_job: 2, is_anonymous: false)
       end
 
       def find_user(id)

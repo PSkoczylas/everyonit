@@ -3,7 +3,7 @@
 # Controller for IT Users actions
 class UsersController < ApplicationController
   def index
-    @users = repository.find_active_users # dodac rowniez atrybut public profile, ktory tez musi byc true
+    @users = repository.find_active_users
   end
 
   def show
