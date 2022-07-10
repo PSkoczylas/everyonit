@@ -13,12 +13,12 @@ User.create(email: 'abc@abc.com', first_name: 'Peter',last_name: 'Jumpforest',
             description: 'Szukam roboty w Javie. Na studiach klepnąłem 8 projektów, w tym 5 w Javie. Lubię Javę,
             sprawdź mój git. Pozdro.',
             title: 'Wannable Java Developer',
-            open_for_job: 2
-)
+            open_for_job: 2,
+            account_type: 0)
 
 User.create(email: 'abcd@abc.com', first_name: 'Tadeusz', last_name: 'Nowak',
             password: 'Abcd12345', password_confirmation: 'Abcd12345',
             description: 'Szukam roboty w Ruby. Jest to najlepszy język we wszechświecie. Pozdrawiam.',
             title: 'Wannable Ruby Developer',
-            open_for_job: 2
-)
+            open_for_job: 2,
+            account_type: 0)

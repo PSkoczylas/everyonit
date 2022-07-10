@@ -9,4 +9,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
+
+  enum account_type: { specialist: 0, recruiter: 1, admin: 2 }
+  enum open_for_job: { closed: 0, it_depends: 1, open: 2 }
 end
