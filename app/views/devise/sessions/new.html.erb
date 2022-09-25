@@ -1,0 +1,18 @@
+<section class="py-5">
+  <div class="py-lg-3">
+    <h2>Log in</h2>
+    <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.email_field :email, label: "Email address:", required: true, autofocus: true, floating: true %>
+        <%= f.password_field :password, label: "Password:", floating: true, required: true, autofocus: true %>
+        <% if devise_mapping.rememberable? %>
+          <%= f.check_box :remember_me, class: 'mt-1 mb-1' %>
+        <% end %>
+        <%= f.submit "Log in", class: 'btn btn-primary actions mt-2 mb-2'%>
+      </div>
+    <% end %>
+    <div class="auth-links">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</section>

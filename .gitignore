@@ -36,3 +36,5 @@
 
 .ruby-gemset
 .rvmrc
+
+/node_modules

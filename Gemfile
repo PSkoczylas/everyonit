@@ -17,8 +17,8 @@ gem 'pg', '~> 1.1'
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem 'importmap-rails'
+# Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
+gem 'jsbundling-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem 'turbo-rails'
@@ -26,11 +26,11 @@ gem 'turbo-rails'
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
 
-# Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
-gem 'tailwindcss-rails'
+# Bundle and process CSS [https://github.com/rails/cssbundling-rails]
+gem 'cssbundling-rails'
 
 # Use Redis adapter to run Action Cable in production
-gem "redis", "~> 4.0"
+gem 'redis', '~> 4.0'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -44,8 +44,17 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
-# Use for authorisation roles
-# gem "pundit"
+# Use for clean code
+gem 'rubocop', require: false
+
+# Use for authentication
+gem 'devise'
+
+# Simpler views (possible to remove)
+gem 'simple_form'
+
+# Bootstrap for views
+gem 'bootstrap_form', '~> 5.0'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -53,26 +62,25 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-# Use for clean code
-gem 'rubocop', require: false
-
-# Use for authentication user
-gem 'devise'
-
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  # create similar objects to tests
   gem 'factory_bot_rails'
+  # framework for tests
   gem 'rspec-rails', '~> 5.0.0'
+  # For avoid n + 1 query
+  gem 'bullet'
+  gem 'pry-rails'
 end
 
 group :test do
+  # better matchers for tests
   gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'pry-rails'
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
