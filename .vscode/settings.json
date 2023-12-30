@@ -23,6 +23,7 @@
           "icon": "terminal-powershell"
         }
       },
+<<<<<<< HEAD
       "editor.tabSize": 2,
       "files.associations": {
         "*.html.erb": "erb"
@@ -30,3 +31,7 @@
 
       "vscode-erb-beautify.executePath": "/home/piotr/.rvm/gems/ruby-3.1.0@everyonit/wrappers/htmlbeautifier"
 }
+=======
+      "editor.tabSize": 2
+}
+>>>>>>> ab194c0 (Add gems and some configuration)

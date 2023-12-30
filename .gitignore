@@ -36,5 +36,8 @@
 
 .ruby-gemset
 .rvmrc
+<<<<<<< HEAD
 
 /node_modules
+=======
+>>>>>>> ab194c0 (Add gems and some configuration)
