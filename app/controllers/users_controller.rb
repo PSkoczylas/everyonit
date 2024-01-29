@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     @user = repository.find_user(params[:id])
   end
 
+  def create
+    binding.pry
+  end
+
   private
 
   def repository

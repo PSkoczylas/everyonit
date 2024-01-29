@@ -2,7 +2,7 @@
 
 # Controller for IT announcement (description) actions
 class SpecialistAdsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_advertisement, only: %i[create_or_update new_or_edit]
 
   def new_or_edit; end
