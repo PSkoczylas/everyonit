@@ -11,14 +11,14 @@
                 <h5 class="mb-1"><%= user.first_name %> <%= user.last_name %></h5>
                 <small>3 days ago</small>
               </div>
-              <p class="mb-1"><%= user.description %></p>
+              <p class="mb-1"><%= user.specialist_ad&.description || user.description %></p>
               <small>ok</small>
             <% end %>
         <% end %>
           </div>
         </p>
         <p>
-          <a href="#" class="btn btn-primary my-2">Dodaj/edytuj własne ogłoszenie</a>
+          <%= link_to "Dodaj/edytuj własne ogłoszenie", new_or_edit_specialist_ads_path, class: "btn btn-primary my-2" %>
           <a href="#" class="btn btn-secondary my-2">Secondary action</a>
         </p>
       </div>

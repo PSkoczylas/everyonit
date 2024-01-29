@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'specialist_ads#index'
 
   devise_for :users
   devise_scope :user do
@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     get 'users', to: 'devise/sessions#new'
   end
   resources :users
+  resources :specialist_ads, except: %i[new edit create update] do
+    get 'new_or_edit', on: :collection
+    get 'create_or_update', on: :collection
+  end
 
   #  devise_for :users, controllers: { sessions: 'users/sessions',
   #                                    registrations: 'users/registrations',
