@@ -5,8 +5,8 @@ class CreateSpecialistAds < ActiveRecord::Migration[7.0]
     create_table :specialist_ads do |t|
       t.text :description
       t.string :title
-      t.integer :desired_level
       t.integer :desired_salary
+      t.string :portfolio_url
 
       t.belongs_to :user, foreign_key: true
 

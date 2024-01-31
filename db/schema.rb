@@ -17,8 +17,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_29_164502) do
   create_table "specialist_ads", force: :cascade do |t|
     t.text "description"
     t.string "title"
-    t.integer "desired_level"
     t.integer "desired_salary"
+    t.string "portfolio_url"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,26 +1,20 @@
-<main>
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Twoje ogłoszenie:</h1>
-        <%= form_for @advertisement, url: create_or_update_specialist_ads_path do |f| %>
-          <div class="form-group">
-            <%= f.label :title, "Tytuł" %>
-            <%= f.text_field :title, class: 'form-control', placeholder: "Podaj tytuł ogłoszenia..." %>
-          </div>
+<section class="py-5">
+  <div class="py-lg-3">
+    <h2>Twoje ogłoszenie:</h2>
+    <%= bootstrap_form_for @advertisement, url: create_or_update_specialist_ads_path, layout: :floating do |f| %>
+      <div class="form-inputs">
+        <%= f.text_field :title, label: "Tytuł", placeholder: "Tytuł", floating: true, required: true, autofocus: true %>
+        <%= f.text_area :description, label: "Opis", placeholder: "Opis", floating: true, style: "height: 200px;", required: true %>
+        <%= f.number_field :desired_salary, label: "Oczekiwane wynagrodzenie", placeholder: "Oczekiwane wynagrodzenie", floating: true, step: 1 %>
+        <%= f.url_field :portfolio_url, label: "URL Portfolio", placeholder: "http://twojeportfolio.com", floating: true %>
 
-          <div class="form-group">
-            <%= f.label :description, "Opis" %>
-            <%= f.text_area :description, class: 'form-control', placeholder: "Podaj opis ogłoszenia..." %>
-          </div>
-
-          <%= f.submit "Zapisz", class: "btn btn-primary" %>
-        <% end %>
-
-        <p class="mt-4">
-          <a href="<%= specialist_ads_path %>" class="btn btn-secondary my-2">Powrót do listy</a>
-        </p>
+        <%= f.submit "Zapisz", class: 'btn btn-primary actions mt-2 mb-2' %>
       </div>
+    <% end %>
+    <div class="auth-links">
+      <p class="mt-4">
+        <a href="<%= specialist_ads_path %>" class="btn btn-secondary my-2">Powrót do listy</a>
+      </p>
     </div>
-  </section>
-</main>
+  </div>
+</section>

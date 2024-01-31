@@ -72,6 +72,8 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  config.assets.compile = true
+
   # Send password recovery emails in development
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
