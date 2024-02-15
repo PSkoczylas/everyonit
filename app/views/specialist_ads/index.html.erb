@@ -11,8 +11,11 @@
                 <h5 class="mb-1"><%= user.first_name %> <%= user.last_name %></h5>
                 <small>3 days ago</small>
               </div>
-              <p class="mb-1"><%= user.specialist_ad&.description || user.description %></p>
-              <small>ok</small>
+                <div class="d-flex w-100 justify-content-between">
+                 <h5 class="mb-1"><%= user.description %></h5>
+              </div>
+              <p class="mb-1"><%= user.specialist_ad&.description %></p>
+              <small><%= user.specialist_ad&.portfolio_url %></small>
             <% end %>
         <% end %>
           </div>
