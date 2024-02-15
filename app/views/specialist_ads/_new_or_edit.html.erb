@@ -1,0 +1,30 @@
+<section class="py-5">
+  <div class="py-lg-3">
+    <h2>Twoje ogłoszenie:</h2>
+<%= form_with(model: @advertisement, local: true, html: { class: 'form-floating' }) do |form| %>
+  <div class="form-floating mb-3">
+    <%= form.text_field :title, class: 'form-control', placeholder: 'Tytuł', required: true %>
+    <%= form.label :title, 'Tytuł *', required: true %>
+  </div>
+  <div class="form-floating mb-3">
+    <%= form.text_area :description, class: 'form-control', placeholder: 'Opis', style: "height: 100px;", required: true %>
+    <%= form.label :description, 'Opis *', required: true %>
+  </div>
+  <div class="form-floating mb-3">
+    <%= form.number_field :desired_salary, class: 'form-control', placeholder: 'Oczekiwane wynagrodzenie', step: 1 %>
+    <%= form.label :desired_salary, 'Oczekiwane wynagrodzenie' %>
+  </div>
+  <div class="form-floating mb-3">
+    <%= form.url_field :portfolio_url, class: 'form-control', placeholder: 'http://twojeportfolio.com' %>
+    <%= form.label :portfolio_url, 'URL Portfolio' %>
+  </div>
+
+  <%= form.submit "Zapisz", class: 'btn btn-primary mt-2 mb-2' %>
+<% end %>
+    <div class="auth-links">
+      <p class="mt-4">
+        <a href="<%= specialist_ads_path %>" class="btn btn-secondary my-2">Powrót do listy</a>
+      </p>
+    </div>
+  </div>
+</section>

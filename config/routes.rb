@@ -9,10 +9,7 @@ Rails.application.routes.draw do
     get 'users', to: 'devise/sessions#new'
   end
   resources :users
-  resources :specialist_ads, except: %i[new edit create update] do
-    get 'new_or_edit', on: :collection
-    get 'create_or_update', on: :collection
-  end
+  resources :specialist_ads
 
   #  devise_for :users, controllers: { sessions: 'users/sessions',
   #                                    registrations: 'users/registrations',

@@ -18,7 +18,11 @@
           </div>
         </p>
         <p>
-          <%= link_to "Dodaj/edytuj własne ogłoszenie", new_or_edit_specialist_ads_path, class: "btn btn-primary my-2" %>
+        <% if current_user.specialist_ad.present? %>
+          <%= link_to "Edytuj własne ogłoszenie", edit_specialist_ad_path(current_user.specialist_ad), class: "btn btn-primary my-2" %>
+        <% else %>
+          <%= link_to "Dodaj własne ogłoszenie", new_specialist_ad_path, class: "btn btn-primary my-2" %>
+        <% end %>
           <a href="#" class="btn btn-secondary my-2">Secondary action</a>
         </p>
       </div>
