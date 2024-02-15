@@ -11,14 +11,21 @@
                 <h5 class="mb-1"><%= user.first_name %> <%= user.last_name %></h5>
                 <small>3 days ago</small>
               </div>
-              <p class="mb-1"><%= user.description %></p>
-              <small>ok</small>
+                <div class="d-flex w-100 justify-content-between">
+                 <h5 class="mb-1"><%= user.description %></h5>
+              </div>
+              <p class="mb-1"><%= user.specialist_ad&.description %></p>
+              <small><%= user.specialist_ad&.portfolio_url %></small>
             <% end %>
         <% end %>
           </div>
         </p>
         <p>
-          <a href="#" class="btn btn-primary my-2">Dodaj/edytuj własne ogłoszenie</a>
+        <% if current_user.specialist_ad.present? %>
+          <%= link_to "Edytuj własne ogłoszenie", edit_specialist_ad_path(current_user.specialist_ad), class: "btn btn-primary my-2" %>
+        <% else %>
+          <%= link_to "Dodaj własne ogłoszenie", new_specialist_ad_path, class: "btn btn-primary my-2" %>
+        <% end %>
           <a href="#" class="btn btn-secondary my-2">Secondary action</a>
         </p>
       </div>

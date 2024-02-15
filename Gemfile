@@ -32,6 +32,9 @@ gem 'cssbundling-rails'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 
+# Add this later
+# gem "dry-rails", "~> 0.3"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -45,7 +48,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 # Use for clean code
-gem 'rubocop', require: false
+gem 'rubocop', '~> 1.60', require: false
 
 # Use for authentication
 gem 'devise'
@@ -55,6 +58,8 @@ gem 'simple_form'
 
 # Bootstrap for views
 gem 'bootstrap_form', '~> 5.0'
+
+gem "validate_url"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -72,6 +77,7 @@ group :development, :test do
   # For avoid n + 1 query
   gem 'bullet'
   gem 'pry-rails'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'main'
 end
 
 group :test do

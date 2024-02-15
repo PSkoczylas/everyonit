@@ -17,7 +17,6 @@
 default: &default
   host: localhost
   username: everyonit
-  #password: abc123
   password: <%= ENV['EVERYONIT_DATABASE_PASSWORD'] %>
   adapter: postgresql
   encoding: unicode

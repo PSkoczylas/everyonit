@@ -4,8 +4,9 @@ module Users
   # Repository with active record query to User model
   class UserRepository
     class << self
+      IS_OPEN_FOR_JOB = 2
       def find_active_users
-        User.all.where(open_for_job: 2, is_anonymous: false)
+        User.joins(:specialist_ad).where(open_for_job: IS_OPEN_FOR_JOB, is_anonymous: false)
       end
 
       def find_user(id)
