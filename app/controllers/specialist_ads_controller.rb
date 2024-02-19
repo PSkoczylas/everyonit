@@ -7,7 +7,11 @@ class SpecialistAdsController < ApplicationController
   end
 
   def show
-    @user = user_repository.find_user(params[:id])
+    @user = user_repository.find_user_by_ad(params[:id])
+    response.headers["Cache-Control"] = "no-cache, no-store"
+    respond_to do |format|
+      format.html { render layout: false } # Dodaj to, aby wymusić renderowanie bez layoutu
+    end
   end
 
   def new
@@ -19,7 +23,7 @@ class SpecialistAdsController < ApplicationController
     if @advertisement.save
       redirect_to specialist_ads_path, notice: 'Ogłoszenie zostało pomyślnie utworzone.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -28,16 +32,17 @@ class SpecialistAdsController < ApplicationController
 
   def update
     if @advertisement.update(advertisement_params)
+      # binding.pry
       redirect_to specialist_ads_path, notice: 'Ogłoszenie zostało pomyślnie zaktualizowane.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   private
 
   def set_advertisement
-    @advertisement = current_user.specialist_ad
+    @advertisement = SpecialistAd.find(params[:id])
     redirect_to new_specialist_ad_path, alert: 'Ogłoszenie nie znalezione.' if @advertisement.nil?
   end
 

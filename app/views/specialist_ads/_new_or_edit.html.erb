@@ -1,6 +1,5 @@
 <section class="py-5">
   <div class="py-lg-3">
-    <h2>Twoje ogłoszenie:</h2>
 <%= form_with(model: @advertisement, local: true, html: { class: 'form-floating' }) do |form| %>
   <div class="form-floating mb-3">
     <%= form.text_field :title, class: 'form-control', placeholder: 'Tytuł', required: true %>

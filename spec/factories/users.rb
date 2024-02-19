@@ -7,5 +7,7 @@ FactoryBot.define do
     sequence(:email) { |n| "user#{n}@example.com" }
     password { 'Abcd1234' }
     password_confirmation { 'Abcd1234' }
+    open_for_job { 2 }
+    is_anonymous { false }
   end
 end

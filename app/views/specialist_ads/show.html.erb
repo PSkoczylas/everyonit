@@ -1,12 +1,20 @@
-<section class="py-5 text-center container">
-  <div class="row py-lg-5">
-    <div class="col-lg-6 col-md-8 mx-auto">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1"><%= @user.first_name %> <%= @user.last_name %></h5>
-        <small>3 days ago</small>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"><%= @user.first_name %> <%= @user.last_name %></h5>
+          <% if @user.specialist_ad.present? %>
+            <small><%= time_ago_in_words(@user.specialist_ad.created_at) %> ago</small>
+          <% else %>
+            <small>Not available</small>
+          <% end %>
+        </div>
+        <p class="mb-1"><%= @user.description %></p>
+        <% if @user.specialist_ad.present? %>
+          <small>ok</small>
+        <% else %>
+          <small>No details available</small>
+        <% end %>
       </div>
-      <p class="mb-1"><%= @user.description %></p>
-      <small>ok</small>
-    </section>
-  </div>
-</div>
+    </div>
+  </section>
