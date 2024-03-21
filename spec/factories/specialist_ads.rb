@@ -7,3 +7,18 @@ FactoryBot.define do
     user
   end
 end
+
+class MessagesController < ApplicationController
+  def create
+    @message = Message.new(message_params)
+    if @message.save
+      turbo_stream.prepend 'messages', partial: 'messages/message', locals: { message: @message }
+    end
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:content, :user_id)
+  end
+end

@@ -61,6 +61,10 @@ gem 'bootstrap_form', '~> 5.0'
 
 gem "validate_url"
 
+gem "hotwire-livereload", "~> 1.3", group: :development
+
+gem 'pagy', '~> 7.0', '>= 7.0.10'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -95,5 +99,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
-gem "hotwire-livereload", "~> 1.3", :group => :development

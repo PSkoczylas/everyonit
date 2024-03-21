@@ -2,6 +2,8 @@
 
 class ApplicationController < ActionController::Base
   include ExceptionHandler
+  include Pagy::Backend
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

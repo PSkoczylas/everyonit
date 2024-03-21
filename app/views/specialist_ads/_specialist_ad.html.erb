@@ -1,0 +1,10 @@
+          <% @pagy.each do |specialist_ad| %>
+
+<%= link_to specialist_ad_path(specialist_ad), class: "list-group-item list-group-item-action flex-column align-items-start", data: { turbo_frame: "user_profile" } do %>
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1"><%= specialist_ad.user.first_name %> <%= specialist_ad.user.last_name %></h5>
+    <small><%= time_ago_in_words(specialist_ad.created_at) %> ago</small>
+  </div>
+  <p class="mb-1"><%= specialist_ad.description %></p>
+<% end %>
+<% end %>

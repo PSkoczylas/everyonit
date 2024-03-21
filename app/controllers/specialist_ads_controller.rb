@@ -3,7 +3,7 @@ class SpecialistAdsController < ApplicationController
   before_action :set_advertisement, only: %i[edit update]
 
   def index
-    @users = user_repository.find_active_users.includes(:specialist_ad)
+    @pagy, @users = pagy(user_repository.find_active_users.includes(:specialist_ad), items: 8)
   end
 
   def show

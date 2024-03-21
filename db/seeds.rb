@@ -22,3 +22,30 @@ User.create(email: 'abcd@abc.com', first_name: 'Tadeusz', last_name: 'Nowak',
             title: 'Wannable Ruby Developer',
             open_for_job: 2,
             account_type: 0)
+
+
+user1 = User.create(email: 'abcde@abc.com', first_name: 'Tadeusz', last_name: 'Nowak',
+password: 'Abcd12345', password_confirmation: 'Abcd12345',
+description: 'Szukam roboty w Ruby. Jest to najlepszy język we wszechświecie. Pozdrawiam.',
+title: 'Wannable Ruby Developer',
+open_for_job: 2,
+account_type: 0)
+
+
+SpecialistAd.create(user: user1)
+
+40.times do |i|
+  user = User.create(
+    email: "user#{i+1}@example.com",
+    first_name: "Imie#{i+1}",
+    last_name: "Nazwisko#{i+1}",
+    password: 'Example12345',
+    password_confirmation: 'Example12345',
+    description: 'Pasjonat Ruby szukający nowych wyzwań.',
+    title: 'Ruby Developer',
+    open_for_job: 2,
+    account_type: 0
+  )
+
+  SpecialistAd.create(user: user, description: 'Szukam pracy', title: 'Programista')
+end

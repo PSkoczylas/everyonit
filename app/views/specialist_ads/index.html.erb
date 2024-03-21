@@ -19,23 +19,30 @@
             <% end %>
           <% end %>
         </div>
+          <div class="text-center mt-4">
+            <style>
+              .pagination {
+                  justify-content: center;
+                  width: 100%;
+                }
+              </style>
+                  <%= pagy_bootstrap_nav(@pagy).html_safe %>
+              </div>
         <!-- Przyciski wyśrodkowane -->
         <div class="text-center mt-4">
           <% if current_user&.specialist_ad.present? %>
-            <%= link_to "Edytuj własne ogłoszenie", edit_specialist_ad_path(current_user.specialist_ad), class: "btn btn-primary my-2", data: { turbo_frame: "_top" } %>
+            <%= link_to "Edytuj własne ogłoszenie", edit_specialist_ad_path(current_user.specialist_ad), class: "btn btn-primary my-2",  data: { turbo_action: "true" } %>
           <% else %>
-            <%= link_to "Dodaj własne ogłoszenie", new_specialist_ad_path, class: "btn btn-primary my-2", data: { turbo_frame: "_top" } %>
+            <%= link_to "Dodaj własne ogłoszenie", new_specialist_ad_path, class: "btn btn-primary my-2", data: { turbo_action: "true" } %>
           <% end %>
             <a href="#" class="btn btn-secondary my-2">Secondary action</a>
         </div>
       </div>
 
-      <!-- Profil ostatniej osoby - obszar na Turbo Frame -->
       <div class="col-lg-6 d-none d-lg-block">
         <h1 class="fw-light text-center">Profil osoby:</h1>
         <%= turbo_frame_tag 'user_profile' do %>
-         <!-- Profil ostatniej osoby -->
-        <% last_user = @users.last %>
+        <% last_user = @users.first %>
         <div class="card" style="width: 100%;">
           <div class="card-body">
             <h5 class="card-title"><%= last_user.first_name %> <%= last_user.last_name %></h5>
