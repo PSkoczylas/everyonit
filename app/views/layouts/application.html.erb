@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>YourITGate</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
-  <body>
-    <%= render "layouts/header" %>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
-      <%= yield %>
-    </main>
-  </body>
+<head>
+  <title>YourITGate</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
+<body>
+  <%= render "layouts/header" %>
+  <!-- Usunięto klasy Tailwind i dodano klasy Bootstrap -->
+  <main class="container mt-5">
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+  </main>
+</body>
 </html>

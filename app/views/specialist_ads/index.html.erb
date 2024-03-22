@@ -1,60 +1,78 @@
 <main class="container">
-  <section class="py-5">
-    <div class="row py-lg-5">
+  <section > <!-- Zmniejszono padding sekcji -->
+    <div class="row"> <!-- Usunięto klasy dodające padding -->
+      <!-- Lista osób - zawsze wyświetlana -->
       <!-- Lista osób - zawsze wyświetlana -->
       <div class="col-12 col-lg-6">
         <h1 class="fw-light text-center">Osoby chętne na nową pracę w IT:</h1>
         <div class="list-group">
           <% @users.each do |user| %>
-            <%= link_to user, class: "list-group-item list-group-item-action flex-column align-items-start", data: { turbo_frame: "user_profile" } do %>
+            <!-- Linki dla dużych ekranów korzystające z Turbo Frames -->
+            <%= link_to user, class: "d-none d-lg-block list-group-item list-group-item-action flex-column align-items-start", data: { turbo_frame: "user_profile" } do %>
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1"><%= user.first_name %> <%= user.last_name %></h5>
                 <small><%= time_ago_in_words(user.created_at) %> ago</small>
               </div>
+              <p class="mb-1"><%= user.description %></p>
+              <p class="mb-1"><%= user.specialist_ad&.description %></p>
+              <small><%= user.specialist_ad&.portfolio_url %></small>
+            <% end %>
+            <!-- Linki dla małych ekranów bez Turbo Frames -->
+            <%= link_to user, class: "d-lg-none list-group-item list-group-item-action flex-column align-items-start", remote: true do %>
               <div class="d-flex w-100 justify-content-between">
-                <p class="mb-1"><%= user.description %></p>
+                <h5 class="mb-1"><%= user.first_name %> <%= user.last_name %></h5>
+                <small><%= time_ago_in_words(user.created_at) %> ago</small>
               </div>
+              <p class="mb-1"><%= user.description %></p>
               <p class="mb-1"><%= user.specialist_ad&.description %></p>
               <small><%= user.specialist_ad&.portfolio_url %></small>
             <% end %>
           <% end %>
         </div>
-          <div class="text-center mt-4">
-            <style>
-              .pagination {
-                  justify-content: center;
-                  width: 100%;
-                }
-              </style>
-                  <%= pagy_bootstrap_nav(@pagy).html_safe %>
-              </div>
-        <!-- Przyciski wyśrodkowane -->
+        <div class="text-center mt-4">
+            <%= pagy_bootstrap_nav(@pagy).html_safe %>
+        </div>
         <div class="text-center mt-4">
           <% if current_user&.specialist_ad.present? %>
-            <%= link_to "Edytuj własne ogłoszenie", edit_specialist_ad_path(current_user.specialist_ad), class: "btn btn-primary my-2",  data: { turbo_action: "true" } %>
+            <%= link_to "Edytuj własne ogłoszenie", edit_specialist_ad_path(current_user.specialist_ad), class: "btn btn-primary my-2" %>
           <% else %>
-            <%= link_to "Dodaj własne ogłoszenie", new_specialist_ad_path, class: "btn btn-primary my-2", data: { turbo_action: "true" } %>
+            <%= link_to "Dodaj własne ogłoszenie", new_specialist_ad_path, class: "btn btn-primary my-2" %>
           <% end %>
-            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
         </div>
       </div>
 
+      <!-- Profil osoby dla dużych ekranów -->
       <div class="col-lg-6 d-none d-lg-block">
         <h1 class="fw-light text-center">Profil osoby:</h1>
         <%= turbo_frame_tag 'user_profile' do %>
-        <% last_user = @users.first %>
+          <%# Treść domyślna lub pusty element, który zostanie wypełniony po kliknięciu %>
+          <% first_user = @users.first %>
         <div class="card" style="width: 100%;">
           <div class="card-body">
-            <h5 class="card-title"><%= last_user.first_name %> <%= last_user.last_name %></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><%= last_user.specialist_ad&.description %></h6>
-            <p class="card-text"><%= last_user.description %></p>
-            <a href="<%= last_user.specialist_ad&.portfolio_url %>" class="card-link">Portfolio</a>
+            <h5 class="card-title"><%= first_user.first_name %> <%= first_user.last_name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= first_user.specialist_ad&.description %></h6>
+            <p class="card-text"><%= first_user.description %></p>
+            <a href="<%= first_user.specialist_ad&.portfolio_url %>" class="card-link">Portfolio</a>
           </div>
         </div>
-      </div>
-          <%# Domyślna treść lub pusty element, który zostanie zastąpiony %>
         <% end %>
       </div>
     </div>
   </section>
 </main>
+
+
+<style>
+  /* Stylizacje dla wszystkich ekranów */
+  .profile-show-container {
+    margin-top: 20px; /* Ustaw odpowiedni odstęp */
+  }
+
+  /* Stylizacje specyficzne dla małych ekranów */
+  @media (max-width: 991.98px) {
+    .profile-show-container {
+      padding: 20px;
+    }
+  }
+</style>
